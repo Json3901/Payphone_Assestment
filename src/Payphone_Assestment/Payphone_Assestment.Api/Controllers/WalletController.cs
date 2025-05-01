@@ -58,7 +58,7 @@ public class WalletController(IWalletService walletService) : ControllerBase
         try
         {
             await walletService.TransferAsync(request);
-            return Ok("Transferencia realizada");
+            return Ok("Transfer successful.");
         }
         catch (Exception ex)
         {
