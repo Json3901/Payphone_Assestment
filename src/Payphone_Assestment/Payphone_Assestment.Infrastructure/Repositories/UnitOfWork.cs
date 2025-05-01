@@ -24,6 +24,8 @@ public class UnitOfWork : IUnitOfWork
             _transaction = _connection.BeginTransaction();
     }
 
+    public IDbTransaction? CurrentTransaction => _transaction;
+
     public IGenericRepository<T> Repository<T>() where T : BaseEntity
     {
         var type = typeof(T).Name;

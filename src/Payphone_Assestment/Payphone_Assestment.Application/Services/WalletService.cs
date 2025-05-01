@@ -116,8 +116,6 @@ public class WalletService(
         if (request.Amount < 0)
             throw new Exception("Transfer amount not valid.");
 
-        unitOfWork.BeginTransaction();
-
         try
         {
             var fromWallet = await _walletRepository.GetByIdAsync(request.FromWalletId);
@@ -138,7 +136,7 @@ public class WalletService(
             {
                 WalletId = fromWallet.Id,
                 Amount = request.Amount,
-                OperationType = (int)OperationType.Credit,
+                OperationType = nameof(OperationType.Credit),
                 OperationDate = DateTime.UtcNow
             };
 
@@ -146,12 +144,12 @@ public class WalletService(
             {
                 WalletId = toWallet.Id,
                 Amount = request.Amount,
-                OperationType = (int)OperationType.Debit,
+                OperationType = nameof(OperationType.Debit),
                 OperationDate = DateTime.UtcNow
             };
 
             var createdTransaction = await _transactionRepository.AddAsync(fromTransaction);
-            if (createdTransaction == null) throw new Exception("Failed to create transaction in source wallet.");
+            if (createdTransaction == null) throw new Exception("Failed to create transaction in source.");
 
             createdTransaction = await _transactionRepository.AddAsync(toTransaction);
             if (createdTransaction == null) throw new Exception("Failed to create transaction in destination wallet.");
@@ -159,13 +157,11 @@ public class WalletService(
             await _walletRepository.UpdateAsync(fromWallet);
             await _walletRepository.UpdateAsync(toWallet);
 
-            await unitOfWork.CommitAsync();
             return true;
         }
-        catch
+        catch (Exception ex)
         {
-            unitOfWork.Rollback();
-            throw;
+            throw new Exception("Error during transfer. It couldn't finished.");
         }
     }
 }

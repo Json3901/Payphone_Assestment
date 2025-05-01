@@ -22,7 +22,7 @@ public class GenericRepository<T>(IDbConnection connection, IDbTransaction? tran
         var sql = $"SELECT * FROM {_tableName} WHERE IsDeleted = 0";
         return await connection.QueryAsync<T>(sql, transaction: transaction);
     }
-
+    
     public async Task<IEnumerable<T>> GetByFilterAsync(Dictionary<string, object> filters)
     {
         var whereClauses = filters.Select(f => $"{f.Key} = @{f.Key}");
@@ -37,7 +37,7 @@ public class GenericRepository<T>(IDbConnection connection, IDbTransaction? tran
         entity.IsDisabled = false;
         entity.IsDeleted = false;
         entity.CreatedAt = DateTime.UtcNow;
-
+        
         var props = typeof(T).GetProperties()
             .Where(p => p.Name != "Id")
             .Select(p => p.Name);
@@ -48,11 +48,12 @@ public class GenericRepository<T>(IDbConnection connection, IDbTransaction? tran
         var sql = $"INSERT INTO {_tableName} ({columns}) VALUES ({values}); SELECT CAST(SCOPE_IDENTITY() as int);";
 
         entity.Id = await connection.ExecuteScalarAsync<int>(sql, entity, transaction);
-
+        
         var sqlSelect = $"SELECT * FROM {_tableName} WHERE Id = @Id AND IsDeleted = 0";
-        var result = await connection.QueryFirstOrDefaultAsync<T>(sqlSelect, new { entity.Id }, transaction);
+        var result = await connection.QueryFirstOrDefaultAsync<T>(sqlSelect, new {  entity.Id }, transaction);
 
         return result ?? throw new Exception("Error al recuperar el registro insertado.");
+
     }
 
     public async Task<bool> UpdateAsync(T entity)
@@ -71,7 +72,7 @@ public class GenericRepository<T>(IDbConnection connection, IDbTransaction? tran
 
     public async Task<bool> SoftDeleteAsync(int id)
     {
-        var sql = $"UPDATE {_tableName} SET IsDisabled = 1,  IsDeleted = 1, UpdatedAt = @Now WHERE Id = @Id";
+        var sql = $"UPDATE {_tableName} SET IsDisabled=1,  IsDeleted = 1, UpdatedAt = @Now WHERE Id = @Id";
         var result = await connection.ExecuteAsync(sql, new { Id = id, Now = DateTime.UtcNow }, transaction);
         return result > 0;
     }
