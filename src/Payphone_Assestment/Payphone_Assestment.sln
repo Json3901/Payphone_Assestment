@@ -1,8 +1,34 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Payphone_Assestment.Api", "Payphone_Assestment.Api\Payphone_Assestment.Api.csproj", "{3A717B5E-AF5B-484E-8FA7-00C527E8CC98}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Payphone_Assestment.Domain", "Payphone_Assestment.Domain\Payphone_Assestment.Domain.csproj", "{8B5EC479-29A2-47D0-811C-D7C338B4B85D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Payphone_Assestment.Application", "Payphone_Assestment.Application\Payphone_Assestment.Application.csproj", "{FACCDEB1-289C-4040-A55A-598B3AA377FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Payphone_Assestment.Infrastructure", "Payphone_Assestment.Infrastructure\Payphone_Assestment.Infrastructure.csproj", "{4A10922D-8368-4427-AC9E-56D2BDE32E51}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3A717B5E-AF5B-484E-8FA7-00C527E8CC98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A717B5E-AF5B-484E-8FA7-00C527E8CC98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A717B5E-AF5B-484E-8FA7-00C527E8CC98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A717B5E-AF5B-484E-8FA7-00C527E8CC98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B5EC479-29A2-47D0-811C-D7C338B4B85D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B5EC479-29A2-47D0-811C-D7C338B4B85D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B5EC479-29A2-47D0-811C-D7C338B4B85D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B5EC479-29A2-47D0-811C-D7C338B4B85D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FACCDEB1-289C-4040-A55A-598B3AA377FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FACCDEB1-289C-4040-A55A-598B3AA377FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FACCDEB1-289C-4040-A55A-598B3AA377FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FACCDEB1-289C-4040-A55A-598B3AA377FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A10922D-8368-4427-AC9E-56D2BDE32E51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A10922D-8368-4427-AC9E-56D2BDE32E51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A10922D-8368-4427-AC9E-56D2BDE32E51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A10922D-8368-4427-AC9E-56D2BDE32E51}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
