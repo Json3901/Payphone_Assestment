@@ -17,8 +17,4 @@
       <ProjectReference Include="..\Payphone_Assestment.Domain\Payphone_Assestment.Domain.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Interfaces\" />
-    </ItemGroup>
-
 </Project>

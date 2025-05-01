@@ -13,7 +13,7 @@ namespace Payphone_Assestment.Application.Services;
 
 public class UserService(IUnitOfWork unitOfWork, IConfiguration configuration) : IUserService
 {
-    public async Task<int> RegisterAsync(RegisterUserRequest request, string password)
+    public async Task<bool> RegisterAsync(RegisterUserRequest request, string password)
     {
         unitOfWork.BeginTransaction();
         var user = new User
@@ -27,10 +27,10 @@ public class UserService(IUnitOfWork unitOfWork, IConfiguration configuration) :
         try
         {
             var userRepository = unitOfWork.Repository<User>();
-            var id = await userRepository.AddAsync(user);
+            var createdUser = await userRepository.AddAsync(user);
 
             await unitOfWork.CommitAsync();
-            return id;
+            return createdUser.Id > 0;
         }
         catch
         {
