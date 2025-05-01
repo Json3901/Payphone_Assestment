@@ -36,6 +36,7 @@ public class WalletService(
         return new WalletResponse
         {
             Id = createdWallet.Id,
+            UserId = createdWallet.UserId,
             Name = createdWallet.Name,
             Description = createdWallet.Description,
             Balance = createdWallet.Balance,
@@ -58,7 +59,7 @@ public class WalletService(
         return wallets.Select(wallet => new WalletResponse
         {
             Id = wallet.Id,
-
+            UserId = wallet.UserId,
             Name = wallet.Name,
             Description = wallet.Description,
             Balance = wallet.Balance,
@@ -78,6 +79,7 @@ public class WalletService(
         return new WalletResponse
         {
             Id = wallet.Id,
+            UserId = wallet.UserId,
             Name = wallet.Name,
             Description = wallet.Description,
             Balance = wallet.Balance,
@@ -161,7 +163,7 @@ public class WalletService(
         }
         catch (Exception ex)
         {
-            throw new Exception("Error during transfer. It couldn't finished.");
+            throw;
         }
     }
 }

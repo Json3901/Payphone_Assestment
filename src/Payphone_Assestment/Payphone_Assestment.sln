@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Payphone_Assestment.Applica
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Payphone_Assestment.Infrastructure", "Payphone_Assestment.Infrastructure\Payphone_Assestment.Infrastructure.csproj", "{4A10922D-8368-4427-AC9E-56D2BDE32E51}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Payphone_assestment.Application.Test", "Payphone_assestment.Application.Test\Payphone_assestment.Application.Test.csproj", "{6ED0CBDF-B4C8-4C5E-9707-17BCD566BA63}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{4A10922D-8368-4427-AC9E-56D2BDE32E51}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A10922D-8368-4427-AC9E-56D2BDE32E51}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A10922D-8368-4427-AC9E-56D2BDE32E51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6ED0CBDF-B4C8-4C5E-9707-17BCD566BA63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6ED0CBDF-B4C8-4C5E-9707-17BCD566BA63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6ED0CBDF-B4C8-4C5E-9707-17BCD566BA63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6ED0CBDF-B4C8-4C5E-9707-17BCD566BA63}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
